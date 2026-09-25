@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
 
-/*
-  Ei metadata browser tab ebong search engine-er jonno use hobe.
-  Assignment-er project name-ke ekhanei centralize korchi.
-*/
 export const metadata: Metadata = {
   title: "FitLog — Workout Library",
   description:
@@ -18,7 +15,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {/* 
+          Navbar ekhane rakhar karon holo
+          eta website-er prottek page-e automatically show korbe.
+        */}
+        <Navbar />
+
+        {/* 
+          children-er moddhe current page-er content render hobe.
+        */}
+        {children}
+      </body>
     </html>
   );
 }

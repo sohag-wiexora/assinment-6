@@ -1,49 +1,32 @@
-import { getWorkouts } from "@/lib/api";
-
-export default async function Home() {
-  /*
-    API theke sob workout fetch korchi.
-
-    Ekhon sudhu test korchi je
-    amader API layer thik moto kaj korche kina.
-  */
-  const workouts = await getWorkouts();
-
+export default function Home() {
   return (
     <main className="fit-container">
       <section className="fit-section">
-        <p className="fit-eyebrow">API Test</p>
+        {/* 
+          Eta temporary content.
+          Navbar thik moto render hocche kina
+          age test korchi.
+        */}
+        <p className="fit-eyebrow">Workout Library</p>
 
-        <h1 className="mt-6 text-4xl font-bold">
-          FitLog Workouts
+        <h1 className="fit-display-title mt-6">
+          Train With Intent.
+          <br />
+          Log Every Set.
         </h1>
 
-        <p className="mt-4 text-neutral-400">
-          Total workouts: {workouts.length}
+        <p className="mt-8 max-w-2xl text-sm leading-7 text-neutral-400">
+          FitLog is a dark, no-nonsense gym companion: pick a lift,
+          lock it into today&apos;s plan, and watch the week&apos;s work
+          add up.
         </p>
 
-        <div className="mt-8 space-y-4">
-          {workouts.map((workout) => (
-            <div
-              key={workout.id}
-              className="border border-neutral-800 p-5"
-            >
-              <h2 className="text-xl font-bold">
-                {workout.name}
-              </h2>
-
-              <p className="mt-2 text-sm text-neutral-400">
-                {workout.equipment}
-              </p>
-
-              <p className="mt-2 text-sm text-neutral-400">
-                {workout.duration} min ·{" "}
-                {workout.caloriesBurned} kcal ·{" "}
-                ⭐ {workout.rating}
-              </p>
-            </div>
-          ))}
-        </div>
+        <button
+          type="button"
+          className="fit-primary-button mt-8"
+        >
+          Browse Workouts
+        </button>
       </section>
     </main>
   );
