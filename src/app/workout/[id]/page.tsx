@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import WorkoutActions from "@/components/workout/WorkoutActions";
 
 interface Workout {
   id: number;
@@ -208,25 +209,11 @@ export default async function WorkoutDetailsPage({
       {/* =========================
           ACTION BUTTONS
          ========================= */}
-      <section className="mt-12 flex flex-col gap-3 sm:flex-row">
-        {/*
-          Ekhon button-er visual/action foundation.
-          Next step-e localStorage + toast functionality connect korbo.
-        */}
-        <button
-          type="button"
-          className="fit-primary-button"
-        >
-          <span>＋ Add to today&apos;s plan</span>
-        </button>
-
-        <button
-          type="button"
-          className="inline-flex min-h-12 items-center justify-center border border-neutral-700 px-6 text-xs font-black uppercase tracking-[0.1em] text-white transition-colors hover:border-[#ccff00] hover:text-[#ccff00]"
-        >
-          <span>☆ Save for later</span>
-        </button>
-      </section>
+      {/* 
+  Interactive buttons client component-er moddhe rakha hoyeche.
+  Tai server-rendered workout details clean thakche.
+*/}
+<WorkoutActions workout={workout} />
     </main>
   );
 }
