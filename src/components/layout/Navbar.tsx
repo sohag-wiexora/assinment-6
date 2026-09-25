@@ -47,8 +47,8 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="FitLog"
-            width={130}
-            height={42}
+            width={100}
+            height={32}
             priority
             className="h-auto w-[100px] object-contain sm:w-[120px]"
           />

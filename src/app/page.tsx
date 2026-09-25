@@ -1,32 +1,46 @@
+import Hero from "@/components/workout/Hero";
+
 export default function Home() {
   return (
-    <main className="fit-container">
-      <section className="fit-section">
-        {/* 
-          Eta temporary content.
-          Navbar thik moto render hocche kina
-          age test korchi.
-        */}
+    <main>
+      {/* 
+        Home page-er first visual section.
+        Hero component alada kore rakhar karon holo
+        page.tsx-ke clean ebong maintainable rakha.
+      */}
+      <Hero />
+
+      {/* 
+        Ekhon library section-er placeholder.
+        
+        Hero-r "Browse Workouts" button-er href:
+        #library
+        
+        Tai ei id-ta ekhane use korchi.
+        Pore actual API workout grid ekhane bosbe.
+      */}
+      <section
+        id="library"
+        className="fit-container fit-section"
+      >
         <p className="fit-eyebrow">Workout Library</p>
 
-        <h1 className="fit-display-title mt-6">
-          Train With Intent.
-          <br />
-          Log Every Set.
-        </h1>
+        <h2 className="mt-4 text-4xl font-black uppercase tracking-tight sm:text-5xl">
+          The Library
+        </h2>
 
-        <p className="mt-8 max-w-2xl text-sm leading-7 text-neutral-400">
-          FitLog is a dark, no-nonsense gym companion: pick a lift,
-          lock it into today&apos;s plan, and watch the week&apos;s work
-          add up.
+        <p className="mt-4 text-sm text-neutral-500">
+          Twelve lifts covering every major muscle group.
         </p>
 
-        <button
-          type="button"
-          className="fit-primary-button mt-8"
-        >
-          Browse Workouts
-        </button>
+        {/* 
+          Eta temporary placeholder.
+          Next step-e ekhane actual API theke
+          workout cards render korbo.
+        */}
+        <div className="mt-10 border border-dashed border-neutral-800 p-10 text-center text-sm text-neutral-600">
+          Workout cards will appear here.
+        </div>
       </section>
     </main>
   );
