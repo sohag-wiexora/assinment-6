@@ -50,19 +50,19 @@ export default function PlanProvider({
   /*
     Ei ref diye bujhbo localStorage theke initial data
     already load kora hoyeche kina.
-
     Ref use korar karon:
     Ekhane extra render trigger korar dorkar nei.
   */
+ 
   const storageLoaded = useRef(false);
 
   /*
     Browser render howar por localStorage theke
     previous Plan ebong Saved data load korchi.
-
     setTimeout use korchi jate effect-er body-te
     directly setState na hoy.
   */
+
   useEffect(() => {
     const timer = window.setTimeout(() => {
       try {
@@ -77,6 +77,7 @@ export default function PlanProvider({
         /*
           Stored Plan valid array hole state-e load korchi.
         */
+
         if (storedPlan) {
           const parsedPlan: unknown = JSON.parse(storedPlan);
 
@@ -88,6 +89,7 @@ export default function PlanProvider({
         /*
           Stored Saved data valid array hole state-e load korchi.
         */
+
         if (storedSaved) {
           const parsedSaved: unknown = JSON.parse(storedSaved);
 
@@ -100,11 +102,14 @@ export default function PlanProvider({
           Ekhon theke state change hole localStorage update
           kora safe.
         */
+
         storageLoaded.current = true;
       } catch (error) {
+       
         /*
           Corrupt localStorage data hole app crash korbe na.
         */
+
         console.error(
           "Failed to load FitLog localStorage data:",
           error,
@@ -121,10 +126,10 @@ export default function PlanProvider({
 
   /*
     Plan change hole localStorage update korchi.
-
     Initial empty state diye jeno existing localStorage
     overwrite na hoy, tai storageLoaded check korchi.
   */
+
   useEffect(() => {
     if (!storageLoaded.current) {
       return;
@@ -139,6 +144,7 @@ export default function PlanProvider({
   /*
     Saved list change hole localStorage update korchi.
   */
+
   useEffect(() => {
     if (!storageLoaded.current) {
       return;
@@ -152,10 +158,10 @@ export default function PlanProvider({
 
   /*
     Today's Plan-e workout add korchi.
-
     Requirement onujayi maximum 5 ta workout.
     Same workout duplicate hobe na.
   */
+
   const addToPlan = useCallback((workout: Workout) => {
     setPlan((currentPlan) => {
       if (currentPlan.length >= 5) {
@@ -177,6 +183,7 @@ export default function PlanProvider({
   /*
     Today's Plan theke workout remove korchi.
   */
+
   const removeFromPlan = useCallback((workoutId: number) => {
     setPlan((currentPlan) =>
       currentPlan.filter((item) => item.id !== workoutId),
@@ -187,6 +194,7 @@ export default function PlanProvider({
     Workout Saved list-e add korchi.
     Duplicate save allow korchi na.
   */
+
   const saveWorkout = useCallback((workout: Workout) => {
     setSaved((currentSaved) => {
       const alreadyExists = currentSaved.some(
@@ -204,6 +212,7 @@ export default function PlanProvider({
   /*
     Saved list theke workout remove korchi.
   */
+
   const removeFromSaved = useCallback((workoutId: number) => {
     setSaved((currentSaved) =>
       currentSaved.filter((item) => item.id !== workoutId),
@@ -213,6 +222,7 @@ export default function PlanProvider({
   /*
     Workout currently Plan-e ache kina check korchi.
   */
+
   const isInPlan = useCallback(
     (workoutId: number) =>
       plan.some((item) => item.id === workoutId),
@@ -222,6 +232,7 @@ export default function PlanProvider({
   /*
     Workout currently Saved-e ache kina check korchi.
   */
+
   const isSaved = useCallback(
     (workoutId: number) =>
       saved.some((item) => item.id === workoutId),
@@ -231,6 +242,7 @@ export default function PlanProvider({
   /*
     Context-er shared value memoize korchi.
   */
+
   const value = useMemo(
     () => ({
       plan,
@@ -267,6 +279,7 @@ export default function PlanProvider({
   Components-er moddhe easily PlanContext access korar jonno
   usePlan() use korbo.
 */
+
 export function usePlan() {
   const context = useContext(PlanContext);
 

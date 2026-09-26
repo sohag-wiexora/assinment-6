@@ -12,7 +12,6 @@ import WorkoutSkeleton from "./WorkoutSkeleton";
 
 /*
   Home page-er main workout library.
-
   Ei component:
   1. API theke workout load kore
   2. Loading state dekhay
@@ -31,14 +30,17 @@ export default function Library() {
     Duration-ke default rakha hoyeche,
     karon Assignment-e default Duration bola ache.
   */
+
   const [sortBy, setSortBy] = useState<
     "duration" | "calories" | "rating"
   >("duration");
 
   useEffect(() => {
+   
     /*
       Component mount howar por API call korchi.
     */
+
     async function loadWorkouts() {
       try {
         setLoading(true);
@@ -48,19 +50,23 @@ export default function Library() {
 
         setWorkouts(data);
       } catch (error) {
+        
         /*
           API fail korle user-ke meaningful message dekhabo.
         */
+
         console.error("Failed to load workouts:", error);
 
         setError(
           "Workout library load kora jacche na. Please try again.",
         );
       } finally {
+       
         /*
           Success hok ba error hok,
           loading state sesh korte hobe.
         */
+
         setLoading(false);
       }
     }
@@ -70,13 +76,12 @@ export default function Library() {
 
   /*
     Current sort option onujayi workout list sort korchi.
-
     Original API array directly mutate na kore
     [...workouts] diye ekta copy niye kaj korchi.
-
     Eta important, karon React state-er original array
     accidentally modify kora uchit na.
   */
+
   const sortedWorkouts = useMemo(() => {
     return [...workouts].sort((a, b) => {
       if (sortBy === "duration") {
@@ -90,6 +95,7 @@ export default function Library() {
       /*
         Rating-er khetre highest rating age dekhabo.
       */
+
       return b.rating - a.rating;
     });
   }, [workouts, sortBy]);
@@ -102,6 +108,7 @@ export default function Library() {
       {/*
         Library heading area.
       */}
+
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <div>
           <p className="fit-eyebrow">
@@ -120,10 +127,10 @@ export default function Library() {
 
       {/*
         Sort dropdown.
-
         Loading-er somoy dropdown na dekhai,
         karon tokhon ekhono workout data load hoyni.
       */}
+      
       {!loading && !error && (
         <div className="mt-8 flex justify-start md:justify-end">
           <label className="flex items-center gap-3">
@@ -163,6 +170,7 @@ export default function Library() {
                 simple chevron icon use korchi,
                 jeno Figma-style UI-r sathe match kore.
               */}
+
               <span
                 aria-hidden="true"
                 className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500"
@@ -176,10 +184,10 @@ export default function Library() {
 
       {/*
         API loading state.
-
         Actual card ashar age skeleton show korbe,
         tai user blank screen dekhbe na.
       */}
+
       {loading && (
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, index) => (
@@ -191,6 +199,7 @@ export default function Library() {
       {/*
         API error state.
       */}
+
       {!loading && error && (
         <div className="mt-12 border border-red-900/60 bg-red-950/20 p-8">
           <p className="text-sm text-red-400">
@@ -201,14 +210,13 @@ export default function Library() {
 
       {/*
         Actual workout cards.
-
         Desktop = 3 columns
         Tablet = 2 columns
         Mobile = 1 column
-
         sortedWorkouts use korchi,
         tai dropdown change korlei card order change hobe.
       */}
+
       {!loading && !error && (
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {sortedWorkouts.map((workout) => (

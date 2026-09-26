@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/* 
-       n PlanProvider পুরো app-er shared workout state manage korbe.
+       akhane PlanProvider পুরো app-er shared workout state manage korbe.
         Tai Navbar, Details ebong My Plan sobai same data pabe.
       */}
         <PlanProvider>

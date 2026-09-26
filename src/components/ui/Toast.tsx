@@ -6,10 +6,10 @@ interface ToastProps {
 
 /*
   Simple reusable toast component.
-
   App-er different action theke user-ke
   short success message dekhানোর jonno eta use korbo.
 */
+
 export default function Toast({ message }: ToastProps) {
   return (
     <div

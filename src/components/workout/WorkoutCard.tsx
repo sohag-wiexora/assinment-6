@@ -8,10 +8,10 @@ interface WorkoutCardProps {
 
 /*
   Ekta single workout-er complete card.
-
   Library-te onek gula workout thakbe,
   tai card design-ta reusable component banacchi.
 */
+
 export default function WorkoutCard({
   workout,
 }: WorkoutCardProps) {
@@ -25,6 +25,7 @@ export default function WorkoutCard({
         Fixed aspect ratio use korchi jeno
         sob card-er image same size thake.
       */}
+
       <div className="relative aspect-[4/3] overflow-hidden bg-[#111]">
         <Image
           src={workout.image}
@@ -38,17 +39,21 @@ export default function WorkoutCard({
           Image-er upor subtle dark overlay.
           Text readability ebong Figma-r dark visual maintain korar jonno.
         */}
+
         <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/0" />
       </div>
 
       {/* 
         Card-er text/content section.
       */}
+
       <div className="p-5">
+        
         {/* 
           Muscle group/category tags.
           API-te muscleGroups array hisebe ache.
         */}
+
         <div className="flex flex-wrap gap-2">
           {workout.muscleGroups.map((muscle) => (
             <span
@@ -61,11 +66,13 @@ export default function WorkoutCard({
         </div>
 
         {/* Workout name */}
+
         <h3 className="mt-4 text-xl font-black uppercase leading-none tracking-tight text-white">
           {workout.name}
         </h3>
 
         {/* Equipment */}
+
         <p className="mt-3 text-sm text-neutral-500">
           {workout.equipment}
         </p>
@@ -74,6 +81,7 @@ export default function WorkoutCard({
           Stats row:
           duration / calories / rating
         */}
+
         <div className="mt-5 flex items-center gap-4 border-t border-neutral-900 pt-4 text-xs text-neutral-400">
           <span>{workout.duration} min</span>
 

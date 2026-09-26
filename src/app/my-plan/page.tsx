@@ -8,7 +8,7 @@ import { usePlan } from "@/components/plan/PlanProvider";
 import type { Workout } from "@/types/workout";
 
 /*
-  My Plan page-er main kaj holo:
+  akhane My Plan page-er main kaj holo:
   1. Today's Plan show kora
   2. Saved workout show kora
   3. Plan-er live metrics calculate kora
@@ -27,7 +27,7 @@ export default function MyPlanPage() {
   } = usePlan();
 
   /*
-    Default tab Today's Plan rakha holo.
+    akhane ami Default tab Today's Plan rakhci.
   */
   const [activeTab, setActiveTab] = useState<Tab>("plan");
 
@@ -43,7 +43,7 @@ export default function MyPlanPage() {
   */
 const showToast = (message: string) => {
   /*
-    Button click korle short toast notification show korchi.
+    akhane Button click korle short toast notification show korchi.
     User-ke action successful hoyeche kina quickly bujhate help korbe.
   */
   setToast(message);
@@ -57,8 +57,8 @@ const showToast = (message: string) => {
 };
 
   /*
-    Current Today's Plan theke total exercise count,
-    total duration ebong total calories calculate korchi.
+    akhane ami Current Today's Plan theke total exercise count,
+    total duration and total calories calculate korchi.
   */
   const totalExercises = plan.length;
 
@@ -78,7 +78,7 @@ const showToast = (message: string) => {
   const currentWorkouts = activeTab === "plan" ? plan : saved;
 
   /*
-    Plan-er workout remove korar action.
+    akhane ata holo Plan-er workout remove korar action.
   */
   const handleRemoveFromPlan = (workoutId: number) => {
     removeFromPlan(workoutId);
@@ -86,7 +86,7 @@ const showToast = (message: string) => {
   };
 
   /*
-    Saved workout remove korar action.
+    ata holo Saved workout remove korar action.
   */
   const handleRemoveFromSaved = (workoutId: number) => {
     removeFromSaved(workoutId);
@@ -94,7 +94,7 @@ const showToast = (message: string) => {
   };
 
   /*
-    "Mark as Done" click korle workout-ke
+    Akhane "Mark as Done" click korle workout-ke
     Today's Plan theke remove kore dicchi.
     Assignment requirement onujayi toast-o show korchi.
   */
@@ -121,10 +121,9 @@ const showToast = (message: string) => {
           </p>
         </div>
 
-        {/* 
+        {/* Akhane
           Metrics Summary:
           Exercises / Minutes / Calories
-          
           Egulo plan-er sathe live update hobe.
         */}
         <div className="mt-12 grid gap-px border border-neutral-800 bg-neutral-800 sm:grid-cols-3">
@@ -180,7 +179,7 @@ const showToast = (message: string) => {
           </button>
         </div>
 
-        {/* 
+        {/* Akhane
           Current tab-e kon workout ache
           seta ekhane render korbo.
         */}
@@ -243,7 +242,6 @@ function MetricCard({
 
 /*
   Empty state component.
-
   Jokhon Today's Plan ba Saved list empty thakbe,
   tokhon ei section show korbe.
 */
@@ -273,7 +271,7 @@ function EmptyState({ activeTab }: { activeTab: Tab }) {
 /*
   Individual workout card.
 
-  Ei card-e:
+  Ei card-e ami:
   - thumbnail
   - title
   - equipment
@@ -300,7 +298,7 @@ function PlanWorkoutCard({
     <article className="border border-neutral-800 bg-[#070707] p-4 transition hover:border-neutral-700 sm:p-5">
       <div className="flex flex-col gap-5 md:flex-row md:items-center">
        {/*
-        Next.js Image component use korchi jate
+        Akhane Next.js Image component use korchi jate
         image automatically optimize hoy ebong
         unnecessary img warning na thake.
       */}

@@ -15,7 +15,6 @@ interface WorkoutActionsProps {
 /*
   Detail page-er Add / Save button-er complete interaction
   ekhane manage korbo.
-
   Main details page server component thakbe,
   shudhu interactive part client component hobe.
 */
@@ -36,11 +35,13 @@ export default function WorkoutActions({
     Browser-er window.setTimeout number return kore.
     Tai ref-er type number | null rakha hoyeche.
   */
+
   const toastTimerRef = useRef<number | null>(null);
 
   /*
     Component unmount hole pending toast timer cleanup korbo.
   */
+
   useEffect(() => {
     return () => {
       if (toastTimerRef.current !== null) {
@@ -51,10 +52,10 @@ export default function WorkoutActions({
 
   /*
     Toast dekhানোর reusable helper.
-
     Notun toast ashle previous timer clear kore
     notun 2.5 second timer start korbe.
   */
+
   const showToast = (message: string) => {
     setToastMessage(message);
 
@@ -70,10 +71,10 @@ export default function WorkoutActions({
 
   /*
     Today's Plan-e workout add korchi.
-
     PlanProvider duplicate ebong 5-item limit
     automatically handle korbe.
   */
+
   const handleAddToPlan = () => {
     if (isInPlan(workout.id)) {
       showToast("Already in today's plan");
@@ -87,6 +88,7 @@ export default function WorkoutActions({
   /*
     Workout Saved list-e add korchi.
   */
+
   const handleSave = () => {
     if (isSaved(workout.id)) {
       showToast("Already saved");
@@ -100,7 +102,9 @@ export default function WorkoutActions({
   return (
     <>
       <section className="mt-12 flex flex-col gap-3 sm:flex-row">
+       
         {/* Add to today's plan button */}
+       
         <button
           type="button"
           onClick={handleAddToPlan}
@@ -115,6 +119,7 @@ export default function WorkoutActions({
         </button>
 
         {/* Save for later button */}
+
         <button
           type="button"
           onClick={handleSave}
@@ -130,6 +135,7 @@ export default function WorkoutActions({
       </section>
 
       {/* Success / information toast */}
+
       {toastMessage && <Toast message={toastMessage} />}
     </>
   );

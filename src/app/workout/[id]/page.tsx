@@ -26,17 +26,17 @@ interface WorkoutDetailsPageProps {
 
 /*
   Workout details page.
-
   User library theke kon workout-e click koreche,
   URL-er [id] diye oi workout-er data API theke niye ashbo.
 */
+
 export default async function WorkoutDetailsPage({
   params,
 }: WorkoutDetailsPageProps) {
   const { id } = await params;
 
   /*
-    Dynamic ID diye single workout API call korchi.
+    akhane Dynamic ID diye single workout API call korchi.
   */
   const response = await fetch(
     `https://api.abcz.workers.dev/api/fitlog/${id}`,
@@ -48,6 +48,7 @@ export default async function WorkoutDetailsPage({
   /*
     Invalid ID hole Next.js-er not-found page-e pathabo.
   */
+ 
   if (!response.ok) {
     return (
       <main className="fit-container fit-section">
@@ -73,10 +74,12 @@ export default async function WorkoutDetailsPage({
 
   return (
     <main className="fit-container fit-section">
+     
       {/* 
         Back link:
         User easily library-te fire aste parbe.
       */}
+
       <Link
         href="/"
         className="mb-8 inline-flex text-xs font-bold uppercase tracking-[0.12em] text-neutral-500 transition-colors hover:text-[#ccff00]"
@@ -89,10 +92,11 @@ export default async function WorkoutDetailsPage({
         Desktop-e left image + right information.
         Mobile-e automatically one column hobe.
       */}
+
       <section className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:gap-12">
-        {/* =========================
-            LEFT — WORKOUT IMAGE
-           ========================= */}
+       
+        {/*LEFT — WORKOUT IMAGE */}
+
         <div className="relative min-h-[420px] overflow-hidden border border-neutral-800 bg-[#0b0b0b] sm:min-h-[560px]">
           <Image
             src={workout.image}
@@ -104,25 +108,27 @@ export default async function WorkoutDetailsPage({
           />
         </div>
 
-        {/* =========================
-            RIGHT — WORKOUT CONTENT
-           ========================= */}
+        {/*RIGHT — WORKOUT CONTENT */}
+
         <div className="flex flex-col justify-center">
           <p className="fit-eyebrow">
             Workout Details
           </p>
 
           {/* Workout title */}
+
           <h1 className="mt-5 text-5xl font-black uppercase leading-[0.92] tracking-tight sm:text-6xl">
             {workout.name}
           </h1>
 
           {/* Description */}
+
           <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-400">
             {workout.description}
           </p>
 
           {/* Muscle group tags */}
+
           <div className="mt-7 flex flex-wrap gap-2">
             {workout.muscleGroups.map((muscle) => (
               <span
@@ -134,9 +140,8 @@ export default async function WorkoutDetailsPage({
             ))}
           </div>
 
-          {/* =========================
-              KEY SPECS
-             ========================= */}
+          {/*KEY SPECS */}
+
           <div className="mt-8 border-y border-neutral-800">
             <SpecRow
               label="Equipment"
@@ -176,9 +181,10 @@ export default async function WorkoutDetailsPage({
         </div>
       </section>
 
-      {/* =========================
+      {/* 
           INSTRUCTIONS
-         ========================= */}
+     */}
+
       <section className="mt-16 max-w-4xl">
         <p className="fit-eyebrow">Instructions</p>
 
@@ -206,13 +212,13 @@ export default async function WorkoutDetailsPage({
         </ol>
       </section>
 
-      {/* =========================
-          ACTION BUTTONS
-         ========================= */}
-      {/* 
-  Interactive buttons client component-er moddhe rakha hoyeche.
+      {/*
+          ACTION BUTTONS:
+          
+  akhane Interactive buttons client component-er moddhe rakha hoyeche.
   Tai server-rendered workout details clean thakche.
 */}
+
 <WorkoutActions workout={workout} />
     </main>
   );
@@ -220,8 +226,7 @@ export default async function WorkoutDetailsPage({
 
 /*
   Reusable specification row.
-
-  Same design repeatedly use korar jonno
+  akhane Same design repeatedly use korar jonno
   alada component function banano holo.
 */
 function SpecRow({

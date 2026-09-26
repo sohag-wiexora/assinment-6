@@ -12,6 +12,7 @@ import { usePlan } from "@/components/plan/PlanProvider";
   Tai workout add/save korle navbar counter-o
   automatically update hobe.
 */
+
 export default function Navbar() {
   const pathname = usePathname();
 
@@ -19,8 +20,9 @@ export default function Navbar() {
 
   /*
     Current page check kore active navigation link
-    আলাদা styling dekhano hocche.
+    alada styling dekhano hocche.
   */
+
   const isWorkoutPage =
     pathname === "/" || pathname.startsWith("/workout");
 
@@ -29,9 +31,9 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-900 bg-[#050505]/95 backdrop-blur-md">
       <div className="mx-auto flex min-h-20 max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        {/* =========================
-            LEFT — LOGO
-           ========================= */}
+        
+        {/* LEFT — LOGO */}
+
         <Link
           href="/"
           className="flex shrink-0 items-center gap-3"
@@ -49,9 +51,8 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* =========================
-            CENTER — NAVIGATION
-           ========================= */}
+        {/* CENTER — NAVIGATION */}
+
         <nav className="flex items-center gap-1 sm:gap-2">
           <Link
             href="/"
@@ -76,15 +77,16 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* =========================
-            RIGHT — LIVE COUNTERS
-           ========================= */}
+        {/*RIGHT — LIVE COUNTERS*/}
+
         <div className="flex shrink-0 items-center gap-2">
+         
           {/* 
             Plan badge:
             Today's Plan-er total workout count show korbe.
             Badge click korle My Plan page-e jabe.
           */}
+
           <Link
             href="/my-plan"
             className="rounded-full bg-[#ccff00] px-3 py-2 text-[9px] font-black uppercase tracking-[0.08em] text-black transition-transform hover:scale-105 sm:px-4"
@@ -97,6 +99,7 @@ export default function Navbar() {
             Saved workout-er live count show korbe.
             Requirement onujayi outline style use korchi.
           */}
+          
           <Link
             href="/my-plan"
             className="rounded-full border border-neutral-600 px-3 py-2 text-[9px] font-black uppercase tracking-[0.08em] text-neutral-300 transition-colors hover:border-[#ccff00] hover:text-[#ccff00] sm:px-4"
